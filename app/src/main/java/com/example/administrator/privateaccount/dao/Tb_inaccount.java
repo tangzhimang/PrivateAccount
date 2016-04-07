@@ -14,8 +14,7 @@ public class Tb_inaccount {
     public Tb_inaccount() {
     }
 
-    public Tb_inaccount(int _id, double money, String time, String type, String handler, String mark) {
-        this._id = _id;
+    public Tb_inaccount( double money, String time, String type, String handler, String mark) {
         this.money = money;
         this.time = time;
         this.type = type;

@@ -15,7 +15,7 @@ import java.util.List;
 public class AccountDB  {
 
     private static final String DB_NAME = "account.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     private static AccountDB accountDB;
     private SQLiteDatabase db;
@@ -34,8 +34,8 @@ public class AccountDB  {
     }
 
     public void saveInAccount(Tb_inaccount tb_inaccount) {
-        db.execSQL("insert into tb_inaccount (_id,money,time,type,handler,mark)" +
-                " values (?,?,?,?,?,?,?)", new Object[]{tb_inaccount.get_id(),tb_inaccount.getMoney(),
+        db.execSQL("insert into tb_inaccount (money,time,type,handler,mark)" +
+                " values (?,?,?,?,?)", new Object[]{tb_inaccount.getMoney(),
             tb_inaccount.getTime(),tb_inaccount.getType(),tb_inaccount.getHandler(),tb_inaccount.getMark()});
     }
 

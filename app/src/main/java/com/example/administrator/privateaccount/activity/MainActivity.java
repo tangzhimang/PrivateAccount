@@ -29,8 +29,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = null;
                 switch (position) {
-                    case 0: {
+                    case 1: {
                         intent = new Intent(MainActivity.this,addinaccunt.class);
+                        startActivity(intent);
+
+                        break;
+                    }
+
+                    case 3: {
+                        intent = new Intent(MainActivity.this,showInAccountActivity.class);
                         startActivity(intent);
 
                         break;

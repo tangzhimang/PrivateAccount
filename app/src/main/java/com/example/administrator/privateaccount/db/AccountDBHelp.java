@@ -9,12 +9,12 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class AccountDBHelp extends SQLiteOpenHelper {
 
-    public static final String TB_OUTACCOUNT = "create table tb_outaccount(_id integer primary key," +
+    public static final String TB_OUTACCOUNT = "create table tb_outaccount(_id integer primary key autoincrement," +
             "money decimal,time varchar(10),type varchar(10),address varchar(100),mark varchar(200))";
-    public static final String TB_INACCOUNT = "create table tb_inaccount(_id integer primary key," +
+    public static final String TB_INACCOUNT = "create table tb_inaccount(_id integer primary key autoincrement," +
             "money decimal,time varchar(10),type varchar(10),handler varchar(100),mark varchar(200))";
     public static final String TB_PWD = "create table tb_pwd(password varchar(20))";
-    public static final String TB_FLAG = "create table tb_flag(_id integer primary key,flag varchar(200))";
+    public static final String TB_FLAG = "create table tb_flag(_id integer primary key autoincrement,flag varchar(200))";
 
 
     public AccountDBHelp(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -32,6 +32,10 @@ public class AccountDBHelp extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("drop table if exists tb_outaccount");
+        db.execSQL("drop table if exists tb_inaccount");
+        db.execSQL("drop table if exists tb_pwd");
+        db.execSQL("drop table if exists tb_flag");
+        onCreate(db);
     }
 }
